@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PointAmount : MonoBehaviour
 {
+    public int Points => points;
+
     [SerializeField]
-    private int pointAmount = 1;
+    private int points = 1;
 }

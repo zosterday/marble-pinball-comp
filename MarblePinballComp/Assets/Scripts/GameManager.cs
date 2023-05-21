@@ -51,15 +51,13 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         AddColorEntries();
-
-        SpawnManager.Instance.StartMarbleSpawn();
-        IsSimActive = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnManager.Instance.StartMarbleSpawn();
+        IsSimActive = true;
     }
 
     // Update is called once per frame

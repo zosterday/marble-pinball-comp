@@ -24,9 +24,9 @@ public class Marble : MonoBehaviour
             return;
         }
 
-        var pointSquare = collision.GetComponent<PointAmount>();
-
-        //Call gameManager method to add points to this color
+        var points = collision.GetComponent<PointAmount>().Points;
+        var color = GetComponent<SpriteRenderer>().material.color;
+        GameManager.Instance.UpdateScore(color, points);
 
         Destroy(gameObject);
     }

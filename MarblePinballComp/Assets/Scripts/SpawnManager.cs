@@ -62,10 +62,13 @@ public class SpawnManager : MonoBehaviour
             var marble = Instantiate(marblePrefab, spawnPos, Quaternion.identity);
 
             var color = colors[i];
-            var renderer = marble.GetComponent<SpriteRenderer>();
-            renderer.color = color;
+            var renderer = marble.GetComponent<Renderer>();
+            renderer.material.color = color;
             var trailRenderer = marble.GetComponent<TrailRenderer>();
             trailRenderer.startColor = color;
+            var endColor = color;
+            endColor.a = 0f;
+            trailRenderer.endColor = endColor;
         }
     }
 }
