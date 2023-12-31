@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
 
     public void StartMarbleSpawn()
     {
-        InvokeRepeating(nameof(SpawnMarbles), 1f, 4f);
+        InvokeRepeating(nameof(SpawnMarbles), 1f, 3f);
     }
 
     public void EndMarbleSpawn()
@@ -56,12 +56,16 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnMarbles()
     {
-        for (var i = 0; i < colors.Count; i++)
+        var colorList = new List<Color>(colors);
+        var offsetMultiplier = 0;
+        while (colorList.Count > 0)
         {
-            var spawnPos = new Vector3(firstSpawnPos.x + (xSpawnOffset * i), firstSpawnPos.y, firstSpawnPos.z);
+            var colorIndex = Random.Range(0, colorList.Count);
+
+            var spawnPos = new Vector3(firstSpawnPos.x + (xSpawnOffset * offsetMultiplier), firstSpawnPos.y, firstSpawnPos.z);
             var marble = Instantiate(marblePrefab, spawnPos, Quaternion.identity);
 
-            var color = colors[i];
+            var color = colorList[colorIndex];
             var renderer = marble.GetComponent<Renderer>();
             renderer.material.color = color;
             var trailRenderer = marble.GetComponent<TrailRenderer>();
@@ -69,6 +73,9 @@ public class SpawnManager : MonoBehaviour
             var endColor = color;
             endColor.a = 0f;
             trailRenderer.endColor = endColor;
+
+            colorList.RemoveAt(colorIndex);
+            offsetMultiplier++;
         }
     }
 }
@@ -76,4 +83,3 @@ public class SpawnManager : MonoBehaviour
 
 
 //TODO: Make marbles slightly bigger and make trail smaller or same size
-//Fix the colors of the marbles and the trails 
