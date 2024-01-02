@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
     //[SerializeField]
     //private GameObject endGamePanel;
 
-    //[SerializeField]
-    //private TextMeshProUGUI countdownTimerText;
+    [SerializeField]
+    private TextMeshProUGUI countdownTimerText;
 
     private void Awake()
     {
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
 
         countdownTimer -= Time.deltaTime;
-        //countdownTimerText.text = countdownTimer.ToString("0.00");
+        countdownTimerText.text = countdownTimer.ToString("0.00");
     }
 
     private void AddColorEntries()

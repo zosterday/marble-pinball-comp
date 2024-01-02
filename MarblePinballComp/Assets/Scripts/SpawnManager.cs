@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
 
     public void StartMarbleSpawn()
     {
-        InvokeRepeating(nameof(SpawnMarbles), 1f, 3f);
+        InvokeRepeating(nameof(SpawnMarbles), 1f, 1f);
     }
 
     public void EndMarbleSpawn()
