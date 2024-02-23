@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
             EndGame();
             return;
         }
-
+        
         countdownTimer -= Time.deltaTime;
         countdownTimerText.text = countdownTimer.ToString("0.00");
     }

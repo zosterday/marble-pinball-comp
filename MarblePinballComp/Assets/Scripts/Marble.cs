@@ -5,6 +5,10 @@ using UnityEngine;
 public class Marble : MonoBehaviour
 {
     private const string PointSquareTag = "PointSquare";
+
+    [SerializeField]
+    private ParticleSystem marbleCollisionParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +25,7 @@ public class Marble : MonoBehaviour
     {
         if (!collision.CompareTag(PointSquareTag))
         {
+            //marbleCollisionParticle.Play();
             return;
         }
 
