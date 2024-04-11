@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
         {
             if (instance is null)
             {
-                throw new System.InvalidOperationException("Instance of GameManager is null");
+                throw new System.InvalidOperationException("Instance of SpawnManager is null");
             }
 
             return instance;
@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
 
     public void StartMarbleSpawn()
     {
-        InvokeRepeating(nameof(SpawnMarbles), 1f, 2f);
+        InvokeRepeating(nameof(SpawnMarbles), 1f, 2.5f);
     }
 
     public void EndMarbleSpawn()
