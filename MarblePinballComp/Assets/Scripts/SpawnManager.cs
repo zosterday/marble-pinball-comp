@@ -8,6 +8,20 @@ public class SpawnManager : MonoBehaviour
 
     private const float XSpawnMax = 2.45f;
 
+    private static SpawnManager instance;
+
+    [SerializeField]
+    private float startMarbleSpawnDelay = 1f;
+
+    private Vector3 firstSpawnPos = new Vector3(XSpawnMin, 5.25f, 1f);
+
+    private float xSpawnOffset;
+
+    private List<Color> colors;
+
+    [SerializeField]
+    private GameObject marblePrefab;
+
     public static SpawnManager Instance
     {
         get
@@ -20,17 +34,6 @@ public class SpawnManager : MonoBehaviour
             return instance;
         }
     }
-
-    private static SpawnManager instance;
-
-    private Vector3 firstSpawnPos = new Vector3(XSpawnMin, 5.25f, 1f);
-
-    private float xSpawnOffset;
-
-    private List<Color> colors;
-
-    [SerializeField]
-    private GameObject marblePrefab;
 
     private void Awake()
     {
@@ -46,7 +49,7 @@ public class SpawnManager : MonoBehaviour
 
     public void StartMarbleSpawn()
     {
-        InvokeRepeating(nameof(SpawnMarbles), 1f, 2.5f);
+        InvokeRepeating(nameof(SpawnMarbles), startMarbleSpawnDelay, 2.5f);
     }
 
     public void EndMarbleSpawn()
