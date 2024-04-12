@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    private const float XSpawnMin = -6f;
+    private const float XSpawnMin = -2.45f;
 
-    private const float XSpawnMax = 6f;
+    private const float XSpawnMax = 2.45f;
 
     public static SpawnManager Instance
     {

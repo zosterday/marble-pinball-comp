@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     private readonly Vector3 placementYOffset = new Vector3(0f, -50f, 0f);
 
-    private float countdownTimer = 25f;
+    private float countdownTimer = 20f;
 
     private bool isSimEnded = false;
 
