@@ -15,7 +15,7 @@ public class Sim4GameManager : MonoBehaviour
 
     private const float BlockYStart = 2f;
 
-    private const float BlockYBound = -3f;
+    private const float BlockYBound = -2.75f;
 
     private const float BlockSpawnOffset = 0.2f;
 
@@ -241,7 +241,7 @@ public class Sim4GameManager : MonoBehaviour
         while (curY >= BlockYBound)
         {
             var curX = -BlockXBound;
-            while (curX <= BlockXBound + 0.3f)
+            while (curX <= BlockXBound + 0.1f)
             {
                 Instantiate(DestroyableBlockPrefab, new Vector3(curX, curY, 1f), Quaternion.identity);
                 BlockCount++;

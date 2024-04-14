@@ -36,8 +36,8 @@ public class DestroyableBlock : MonoBehaviour
             yield return null; // Wait for the next frame
         }
 
-        //Sim4SpawnManager.Instance.SpawnMarble(color);
+        Sim4SpawnManager.Instance.SpawnMarble(color);
         Sim4GameManager.Instance.BlockCount--;
-        Destroy(this);
+        gameObject.SetActive(false);
     }
 }
