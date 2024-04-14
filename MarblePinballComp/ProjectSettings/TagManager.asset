@@ -6,6 +6,9 @@ TagManager:
   tags:
   - PointSquare
   - UpperBound
+  - StartingBox
+  - DestroyableBlock
+  - BottomMarbleBound
   layers:
   - Default
   - TransparentFX
