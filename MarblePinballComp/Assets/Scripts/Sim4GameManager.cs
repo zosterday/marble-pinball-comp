@@ -114,6 +114,7 @@ public class Sim4GameManager : MonoBehaviour
         UpdateLeaderboard();
         IsSimActive = true;
 
+
         Invoke(nameof(DestroyStartingBox), 1.5f);
     }
 
@@ -127,12 +128,6 @@ public class Sim4GameManager : MonoBehaviour
 
         if (isSimEnded)
         {
-            var marblesRemaining = FindObjectsOfType<Marble>().Length;
-            if (marblesRemaining > 0)
-            {
-                return;
-            }
-
             IsSimActive = false;
             DisplayEndGamePanel();
         }

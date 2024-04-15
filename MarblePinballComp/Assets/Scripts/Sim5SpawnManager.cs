@@ -75,6 +75,6 @@ public class Sim5SpawnManager : MonoBehaviour
 
     private void ReduceSpawnInterval()
     {
-        spawnInterval /= 2;
+        spawnInterval *= 0.7f;
     }
 }
