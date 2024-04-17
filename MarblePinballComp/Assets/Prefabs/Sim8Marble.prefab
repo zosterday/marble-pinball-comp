@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 411885308327462045}
   - component: {fileID: 411885308327462042}
   - component: {fileID: 411885308327462043}
-  - component: {fileID: 411885308327462041}
   - component: {fileID: 411885308327462040}
+  - component: {fileID: 8457326803232696979}
   m_Layer: 0
-  m_Name: SmallMarble
+  m_Name: Sim8Marble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 411885308327462046}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.02, y: 5.58, z: 0}
-  m_LocalScale: {x: 0.185, y: 0.185, z: 1}
+  m_LocalScale: {x: 0.175, y: 0.175, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2577565917319376622}
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.4
+  m_LinearDrag: 0.7
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 27491b53695684b3880de0b5e9f88ff3, type: 2}
@@ -126,19 +126,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &411885308327462041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411885308327462046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af5ba42563aca4202a6790fbaaa71e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marbleCollisionParticle: {fileID: 0}
 --- !u!96 &411885308327462040
 TrailRenderer:
   serializedVersion: 2
@@ -184,7 +171,7 @@ TrailRenderer:
   m_Time: 0.15
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.4
+    widthMultiplier: 0.6
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -238,6 +225,18 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &8457326803232696979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411885308327462046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6381924f085f643b89d85fa2b60d3466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5856906104366362762
 GameObject:
   m_ObjectHideFlags: 0

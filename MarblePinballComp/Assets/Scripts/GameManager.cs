@@ -117,8 +117,6 @@ public class GameManager : MonoBehaviour
             DisplayEndGamePanel();
         }
 
-
-
         if (countdownTimer <= 0f)
         {
             EndGame();
@@ -126,6 +124,7 @@ public class GameManager : MonoBehaviour
         }
         
         countdownTimer -= Time.deltaTime;
+        countdownTimer = Math.Max(countdownTimer, 0f);
         countdownTimerText.text = countdownTimer.ToString("0.00");
     }
 

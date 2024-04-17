@@ -9,6 +9,7 @@ TagManager:
   - StartingBox
   - DestroyableBlock
   - BottomMarbleBound
+  - DeathBarrier
   layers:
   - Default
   - TransparentFX
