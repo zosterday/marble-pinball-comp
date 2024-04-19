@@ -8,15 +8,25 @@ public class Sim9Marble : MonoBehaviour
 
     private Renderer renderer;
 
+    private ParticleSystem particleSystem;
+
+    public string Username { get; set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<Renderer>();
+        particleSystem = GetComponentInChildren<ParticleSystem>();
+        particleSystem.gameObject.SetActive(false);
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
     }
 
     private void Update()
     {
+        if (Sim9GameManager.Instance.IsSimActive)
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+        }
         if (!Sim9GameManager.Instance.IsSimActive)
         {
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -31,7 +41,7 @@ public class Sim9Marble : MonoBehaviour
         }
         if (collision.CompareTag("BottomMarbleBound"))
         {
-            Sim9GameManager.Instance.EndGame(renderer.material.color);
+            Sim9GameManager.Instance.EndGame(renderer.material.color, Username);
         }
     }
 
@@ -53,5 +63,17 @@ public class Sim9Marble : MonoBehaviour
             StartCoroutine(block.BreakBlock(renderer.material.color));
             return;
         }
+    }
+
+    public void Explode()
+    {
+        particleSystem.gameObject.SetActive(true);
+        particleSystem.Play();
+        Invoke(nameof(SetInactive), 0.65f);
+    }
+
+    private void SetInactive()
+    {
+        gameObject.SetActive(false);
     }
 }

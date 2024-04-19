@@ -41,12 +41,16 @@ public class Sim9SpawnManager : MonoBehaviour
         SetupMarble(marble, color);
     }
 
-    public void SpawnMarble(Vector3 spawnPos, Color color, string username)
+    public Sim9Marble SpawnMarble(Vector3 spawnPos, Color color, string username)
     {
         var marble = Instantiate(marblePrefab, spawnPos, Quaternion.identity);
         SetupMarble(marble, color);
         var usernameText = marble.GetComponentInChildren<TextMeshPro>();
         usernameText.text = username;
+        var marbleScript = marble.GetComponent<Sim9Marble>();
+        marbleScript.Username = username;
+
+        return marbleScript;
     }
 
     private void SetupMarble(GameObject marble, Color color)

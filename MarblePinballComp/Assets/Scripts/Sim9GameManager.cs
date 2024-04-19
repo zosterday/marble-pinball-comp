@@ -22,9 +22,78 @@ public class Sim9GameManager : MonoBehaviour
     private const float WinnerScaleFactor = 120f;
 
     private static readonly List<string> usernames = new() {
-        "@uncrustable.memess",
         "@radioactivejelly17",
         "@fishy_hotdog",
+        "@kerim.t34",
+        "@memes_copiad",
+        "@dunk9d",
+        "@neggawattz",
+        "@nochillrick",
+        "@ethan_pajot",
+        "@jamesk9.99",
+        "@unidigestible_memes",
+        "@ixnzi.8",
+        "@looped._.rifat",
+        "@aliya.hak",
+        "@surip_cc_178",
+        "@comedy_cartel",
+        "@freakyblueringedoctopus618",
+        "@jasonvincenttt",
+        "@zach.osterday",
+        "@unfiltered_memess",
+        "@mmather1119",
+        "@onszik",
+        "@minionki_360",
+        "@gonik27",
+        "@yogi_xpoh",
+        "@aiku_7",
+        "@alvaro._sanz",
+        "@econ_logan",
+        "@gabinlopez__",
+        "@taxsinglemothers",
+        "@they.lovemal9",
+        "@guigui_fernando",
+        "@skrtdob",
+        "@kdp_3",
+        "@unzuckable",
+        "@tastefulmemer",
+        "@nochillsimpson",
+        "@zuckubus",
+        "@unbustable.nuttt",
+        "@reallionaire_grindset",
+        "@nochillmorty",
+        "@nochillshaggy",
+        "@levssiq",
+        "@imaginaryroola",
+        "@aaathenthen451",
+        "@_omazi_",
+        "@tuckt_ruck",
+        "@megajjnistaken",
+        "@greenfneveryday",
+        "@amy123upr",
+        "@chiwawa.testicals",
+        "@alwaysmemes99",
+        "@subfitss",
+        "@_wtmeme",
+        "@meme.fent.central",
+        "@keiths_paralysis_demon",
+        "@yoinkyeetandyoted",
+        "@jsjsjwk2483",
+        "@wtfke_d",
+        "@omari_star_boy",
+        "@hugothetotallyrealhugo",
+        "@dankvader31",
+        "@baldniqqa",
+        "@hotaki.ahm",
+        "@memecatministry",
+        "@izackkx",
+        "@uncrustable.memess",
+        "@mayorbefufflefrumpter",
+        "@8fmlfr00",
+        "@amin.ah768",
+        "@your_memes_only",
+        "@memeable.memes",
+        "@isabellamson19",
         "@jschlattlover1999",
         "@sayyy.zae_",
         "@christian_m4",
@@ -462,82 +531,15 @@ public class Sim9GameManager : MonoBehaviour
         "@tom_abs_",
         "@fu3rr0",
         "@ate.withcheese",
-        "@astrosidh",
-        "@kerim.t34",
-        "@memes_copiad",
-        "@dunk9d",
-        "@neggawattz",
-        "@nochillrick",
-        "@ethan_pajot",
-        "@jamesk9.99",
-        "@unidigestible_memes",
-        "@ixnzi.8",
-        "@looped._.rifat",
-        "@aliya.hak",
-        "@surip_cc_178",
-        "@comedy_cartel",
-        "@freakyblueringedoctopus618",
-        "@jasonvincenttt",
-        "@zach.osterday",
-        "@unfiltered_memess",
-        "@mmather1119",
-        "@onszik",
-        "@minionki_360",
-        "@gonik27",
-        "@yogi_xpoh",
-        "@aiku_7",
-        "@alvaro._sanz",
-        "@econ_logan",
-        "@gabinlopez__",
-        "@taxsinglemothers",
-        "@they.lovemal9",
-        "@guigui_fernando",
-        "@skrtdob",
-        "@kdp_3",
-        "@unzuckable",
-        "@tastefulmemer",
-        "@nochillsimpson",
-        "@zuckubus",
-        "@unbustable.nuttt",
-        "@reallionaire_grindset",
-        "@nochillmorty",
-        "@nochillshaggy",
-        "@levssiq",
-        "@imaginaryroola",
-        "@aaathenthen451",
-        "@_omazi_",
-        "@tuckt_ruck",
-        "@megajjnistaken",
-        "@greenfneveryday",
-        "@amy123upr",
-        "@chiwawa.testicals",
-        "@alwaysmemes99",
-        "@subfitss",
-        "@_wtmeme",
-        "@meme.fent.central",
-        "@keiths_paralysis_demon",
-        "@yoinkyeetandyoted",
-        "@jsjsjwk2483",
-        "@wtfke_d",
-        "@omari_star_boy",
-        "@hugothetotallyrealhugo",
-        "@dankvader31",
-        "@baldniqqa",
-        "@hotaki.ahm",
-        "@memecatministry",
-        "@izackkx",
-        "@mayorbefufflefrumpter",
-        "@8fmlfr00",
-        "@amin.ah768",
-        "@your_memes_only",
-        "@memeable.memes",
-        "@isabellamson19"};
+        "@astrosidh"};
 
     public bool IsSimActive { get; private set; }
 
     private static Sim9GameManager instance;
 
     private bool isSimEnded = false;
+
+    private List<Sim9Marble> marbles = new();
 
     private Color winnerColor;
 
@@ -551,7 +553,12 @@ public class Sim9GameManager : MonoBehaviour
     private GameObject endGamePanel;
 
     [SerializeField]
+    private TextMeshProUGUI winnerUsernameText; 
+
+    [SerializeField]
     private CameraController mainCameraController;
+
+    private int cameraMoveDownCount = 0; //No longer move down after 2 for this sim
 
     public static Sim9GameManager Instance
     {
@@ -577,9 +584,7 @@ public class Sim9GameManager : MonoBehaviour
     {
         SetupScene();
 
-        IsSimActive = true;
-
-        Invoke(nameof(StartRace), 2.5f);
+        Invoke(nameof(StartRace), 3.5f);
     }
 
     // Update is called once per frame
@@ -592,21 +597,25 @@ public class Sim9GameManager : MonoBehaviour
 
         if (isSimEnded)
         {
-            var marblesRemaining = FindObjectsOfType<Marble>().Length;
-            if (marblesRemaining > 0)
-            {
-                return;
-            }
-
             IsSimActive = false;
-            DisplayEndGamePanel();
+            Invoke(nameof(DisplayEndGamePanel), 1.2f);
         }
     }
 
-    public void EndGame(Color color)
+    public void EndGame(Color color, string username)
     {
         isSimEnded = true;
+        winnerUsernameText.text = username;
         winnerColor = color;
+        Invoke(nameof(ExplodeMarbles), 0.65f);
+    }
+
+    private void ExplodeMarbles()
+    {
+        foreach (var marble in marbles)
+        {
+            marble.Explode();
+        }
     }
 
     private void DisplayEndGamePanel()
@@ -615,6 +624,7 @@ public class Sim9GameManager : MonoBehaviour
 
         var leaderboardIcon = Instantiate(leaderboardIconPrefab, Vector3.zero, Quaternion.identity);
         leaderboardIcon.transform.SetParent(endGamePanel.transform);
+        leaderboardIcon.transform.position = new Vector3(0f, -3.5f, 1f);
         leaderboardIcon.transform.localScale = new Vector3(WinnerScaleFactor, WinnerScaleFactor);
 
         var iconRenderer = leaderboardIcon.GetComponent<Renderer>();
@@ -636,7 +646,8 @@ public class Sim9GameManager : MonoBehaviour
 
                 var spawnPos = new Vector3(x, y, 1f);
                 var color = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
-                Sim9SpawnManager.Instance.SpawnMarble(spawnPos, color, usernames[usernameIndex]);
+                var marble = Sim9SpawnManager.Instance.SpawnMarble(spawnPos, color, usernames[usernameIndex]);
+                marbles.Add(marble);
                 usernameIndex++;
             }
         }
@@ -644,12 +655,18 @@ public class Sim9GameManager : MonoBehaviour
 
     private void StartRace()
     {
+        IsSimActive = true;
         MoveMainCamera(9);
         Destroy(topBound);
     }
 
     public void MoveMainCamera(float moveAmount = 3.5f)
     {
+        if (cameraMoveDownCount >= 2)
+        {
+            return;
+        }
+        cameraMoveDownCount++;
         mainCameraController.MoveCameraDown(moveAmount);
     }
 }
