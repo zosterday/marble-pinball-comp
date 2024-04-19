@@ -1,11 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sim6UpDiamondSpawnManager : MonoBehaviour
+public class Sim9UpDiamondSpawnManager : MonoBehaviour
 {
+    private static readonly Vector3 spawnPosLeft = new Vector3(-2f, -3.1f, 0f);
 
-    private static readonly Vector3 spawnPosRight = new Vector3(1.95f, -3.1f, 0f);
+    private static readonly Vector3 spawnPosRight = new Vector3(2f, -3.1f, 0f);
 
     [SerializeField]
     private GameObject upDiamondPrefab;
@@ -17,6 +18,7 @@ public class Sim6UpDiamondSpawnManager : MonoBehaviour
 
     private void SpawnDiamond()
     {
+        Instantiate(upDiamondPrefab, spawnPosLeft, Quaternion.identity);
         Instantiate(upDiamondPrefab, spawnPosRight, Quaternion.identity);
     }
 }

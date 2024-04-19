@@ -10,6 +10,7 @@ TagManager:
   - DestroyableBlock
   - BottomMarbleBound
   - DeathBarrier
+  - MoveCameraDownTrigger
   layers:
   - Default
   - TransparentFX
