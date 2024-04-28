@@ -33,7 +33,7 @@ public class Sim11GameManager : MonoBehaviour
     private static Sim11GameManager instance;
 
     [SerializeField]
-    private int spawnCount = 250;
+    private int spawnCount = 150;
 
     [SerializeField]
     private GameObject leaderboardIconPrefab;
@@ -94,7 +94,7 @@ public class Sim11GameManager : MonoBehaviour
     {
         endGamePanel.SetActive(true);
 
-        var leaderboardIcon = Instantiate(leaderboardIconPrefab, Vector3.zero, Quaternion.identity);
+        var leaderboardIcon = Instantiate(leaderboardIconPrefab,new Vector3(0f, -0.2f, 0f), Quaternion.identity);
         leaderboardIcon.transform.SetParent(endGamePanel.transform);
         leaderboardIcon.transform.localScale = new Vector3(WinnerScaleFactor, WinnerScaleFactor);
 
@@ -105,7 +105,7 @@ public class Sim11GameManager : MonoBehaviour
     public void CheckForGameOver(int loserId)
     {
         var marblesRemaining = FindObjectsOfType<Sim11Marble>().ToArray();
-        if (marblesRemaining.Length != 2)
+        if (marblesRemaining.Length != 1)
         {
             return;
         }

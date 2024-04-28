@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class ConstantSpeedBounce : MonoBehaviour
 {
-    //TODO tomorrow: need to make it so if stops moving then it gets a new force to
-    //make it move again. Happens if it gets hit like twice at the near same time
-
     [SerializeField]
     private float speed = 0.3f;
 

@@ -1050,7 +1050,6 @@ GameObject:
   - component: {fileID: 915467152}
   - component: {fileID: 915467151}
   - component: {fileID: 915467150}
-  - component: {fileID: 915467153}
   m_Layer: 0
   m_Name: DeathBall
   m_TagString: DeathBall
@@ -1137,6 +1136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef3c16b842e8499d9d28de0d32a9828, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.3
 --- !u!50 &915467151
 Rigidbody2D:
   serializedVersion: 4
@@ -1174,19 +1174,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &915467153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915467147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9624a361b23a347a4bb9a8f0ac566379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0.3
 --- !u!1 &945103807
 GameObject:
   m_ObjectHideFlags: 0
