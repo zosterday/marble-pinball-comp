@@ -11,6 +11,10 @@ TagManager:
   - BottomMarbleBound
   - DeathBarrier
   - MoveCameraDownTrigger
+  - Ball
+  - XBoundary
+  - YBoundary
+  - DeathBall
   layers:
   - Default
   - TransparentFX
