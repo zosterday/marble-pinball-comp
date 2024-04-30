@@ -30,7 +30,7 @@ public class Sim11DeathBall : MonoBehaviour
         }
         lastVelocity = rb.velocity;
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
-        if (rb.velocity.magnitude < speed)
+        if (lastVelocity.magnitude < speed)
         {
             var dir = Vector3.zero - transform.position;
             rb.velocity = dir.normalized * speed;
