@@ -6,7 +6,6 @@ using UnityEngine;
 public class Sim13Marble : MonoBehaviour
 {
     private const float MaxSpeed = 10f;
-    private const float SizeReduction = 0.01f;
 
     private Rigidbody2D rb;
 
