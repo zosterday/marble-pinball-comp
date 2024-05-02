@@ -34,7 +34,7 @@ public class Sim14GameManager : MonoBehaviour
 
     private readonly Vector3 placementYOffset = new Vector3(0f, -50f, 0f);
 
-    private float countdownTimer = 35f;
+    private float countdownTimer = 25f;
 
     private bool isSimEnded = false;
 
@@ -113,7 +113,7 @@ public class Sim14GameManager : MonoBehaviour
         UpdateLeaderboard();
         IsSimActive = true;
 
-        InvokeRepeating(nameof(SpawnDestroyableBlock), 2f, 1f);
+        InvokeRepeating(nameof(SpawnDestroyableBlock), 2.5f, 0.5f);
     }
 
     // Update is called once per frame
