@@ -15,6 +15,7 @@ TagManager:
   - XBoundary
   - YBoundary
   - DeathBall
+  - Obstacle
   layers:
   - Default
   - TransparentFX
