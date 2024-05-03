@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sim13GameManager : MonoBehaviour
+public class Sim16GameManager : MonoBehaviour
 {
     private const float XSpawnMin = -1f;
 
@@ -13,22 +13,20 @@ public class Sim13GameManager : MonoBehaviour
 
     private const float YSpawnMax = 1.5f;
 
-    private int lastCounter;
-
     private int counter;
 
     [SerializeField]
     private GameObject marblePrefab;
 
-    private static Sim13GameManager instance;
+    private static Sim16GameManager instance;
 
-    public static Sim13GameManager Instance
+    public static Sim16GameManager Instance
     {
         get
         {
             if (instance is null)
             {
-                throw new NullReferenceException("Instance of Sim13GameManager is null");
+                throw new NullReferenceException("Instance of Sim16GameManager is null");
             }
 
             return instance;
@@ -38,15 +36,6 @@ public class Sim13GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-    }
-
-    private void Update()
-    {
-        if (counter >= lastCounter + 2)
-        {
-            SpawnMarble();
-            lastCounter = counter;
-        }
     }
 
     // Start is called before the first frame update
@@ -81,8 +70,13 @@ public class Sim13GameManager : MonoBehaviour
         trailRenderer.endColor = endColor;
     }
 
-    public void IncrementSpawnCount()
+    public void IncrementBounceCounter()
     {
         counter++;
+        if (counter >= 10)
+        {
+            SpawnMarble();
+            counter = 0;
+        }
     }
 }

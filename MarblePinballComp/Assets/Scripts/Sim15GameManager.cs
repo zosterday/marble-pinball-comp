@@ -8,7 +8,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class Sim15GameManager : MonoBehaviour
 {
-    private const float ObstacleSpawnDistance = 2.3f;
+    private const float ObstacleSpawnDistance = 3f;
 
     private const float WinnerScaleFactor = 120f;
 
