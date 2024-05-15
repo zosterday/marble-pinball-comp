@@ -7,7 +7,7 @@ public class CircleRenderer : MonoBehaviour
 {
     private int vertexCount = 60; // Number of vertices for the circle
 
-    private float lineWidth = 0.1f; // Width of the outline
+    private float lineWidth = 0.04f; // Width of the outline
 
     [SerializeField]
     private float radius = 2f; // Set this value according to your desired circle size
