@@ -3,9 +3,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(EdgeCollider2D))]
-public class CircleRenderer : MonoBehaviour
+public class CircleRendererWithGap : MonoBehaviour
 {
-    private int vertexCount = 60; // Number of vertices for the circle
+    private int vertexCount = 70; // Number of vertices for the circle
 
     private float lineWidth = 0.04f; // Width of the outline
 
@@ -20,18 +20,18 @@ public class CircleRenderer : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         edgeCollider = GetComponent<EdgeCollider2D>();
-        SetupCircle();
+        SetupCircleWithGap();
     }
 
-    private void SetupCircle()
+    private void SetupCircleWithGap()
     {
         lineRenderer.widthMultiplier = lineWidth;
 
         var deltaTheta = (2f * Mathf.PI) / (vertexCount - 1);
         var theta = 0f;
 
-        Vector2[] colliderPoints = new Vector2[vertexCount];
-        lineRenderer.positionCount = vertexCount;
+        Vector2[] colliderPoints = new Vector2[vertexCount - 5];
+        lineRenderer.positionCount = vertexCount - 5;
 
         for (var i = 0; i < lineRenderer.positionCount; i++)
         {
@@ -51,7 +51,7 @@ public class CircleRenderer : MonoBehaviour
         var theta = 0f;
 
         var oldPos = Vector3.zero;
-        for (var i = 0; i <= vertexCount; i++)
+        for (var i = 0; i <= vertexCount - 1; i++)
         {
             var pos = new Vector3(radius * Mathf.Cos(theta), radius * Mathf.Sin(theta), 0f);
             Gizmos.DrawLine(oldPos, transform.position + pos);

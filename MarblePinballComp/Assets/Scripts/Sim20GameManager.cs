@@ -15,6 +15,8 @@ public class Sim20GameManager : MonoBehaviour
 
     private const float YSpawnMax = 1.5f;
 
+    private readonly Vector3 spawnPos = new(-0.625f, 1.2f, 1f);
+
     private int counter;
 
     [SerializeField]
@@ -38,27 +40,28 @@ public class Sim20GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Invoke(nameof(StartSim), 2f);
     }
 
     // Start is called before the first frame update
-    void Start()
+    void StartSim()
     {
         var color = Color.red;
         ColorUtility.TryParseHtmlString("#00F7FF", out color);
         SpawnMarble(new Vector3(-1f, 0.5f, 0f), color);
-        ColorUtility.TryParseHtmlString("#FF0000", out color);
-        SpawnMarble(new Vector3(1f, 0.5f, 0f), color);
-        ColorUtility.TryParseHtmlString("#03FF00", out color);
-        SpawnMarble(new Vector3(0f, 0.5f, 0f), color);
+        //ColorUtility.TryParseHtmlString("#FF0000", out color);
+        //SpawnMarble(new Vector3(1f, 0.5f, 0f), color);
+        //ColorUtility.TryParseHtmlString("#03FF00", out color);
+        //SpawnMarble(new Vector3(0f, 0.5f, 0f), color);
         //ColorUtility.TryParseHtmlString("#E700FF", out color);
         //SpawnMarble(new Vector3(-0.5f, 1f, 0f), color);
         //ColorUtility.TryParseHtmlString("#FFAD00", out color);
         //SpawnMarble(new Vector3(0.5f, 1f, 0f), color);
     }
 
-    private void SpawnMarble()
+    public void SpawnMarble()
     {
-        var spawnPos = new Vector3(UnityEngine.Random.Range(XSpawnMin, XSpawnMax), UnityEngine.Random.Range(YSpawnMin, YSpawnMax), 1f);
+        //var spawnPos = new Vector3(UnityEngine.Random.Range(XSpawnMin, XSpawnMax), UnityEngine.Random.Range(YSpawnMin, YSpawnMax), 1f);
         var marble = Instantiate(marblePrefab, spawnPos, Quaternion.identity);
         var color = new Color(UnityEngine.Random.value, UnityEngine.Random.value, UnityEngine.Random.value);
         SetupMarble(marble, color);

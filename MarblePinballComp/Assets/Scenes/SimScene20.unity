@@ -200,7 +200,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 536402897}
-  - component: {fileID: 536402898}
   - component: {fileID: 536402899}
   m_Layer: 0
   m_Name: GameManager
@@ -224,19 +223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &536402898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536402896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bb9b2310f690465fa4e11f779c69918, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  marblePrefab: {fileID: 411885308327462046, guid: b4d20f13bfde64bb4bbabf0b743cf5e5, type: 3}
 --- !u!114 &536402899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c33c2f2c19bd04edc9d559e6c76cb866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marblePrefab: {fileID: 411885308327462046, guid: 501d5562af5fe480ea2dcba81cfeeef6, type: 3}
 --- !u!1 &1292419003
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,8 +474,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2057857507}
   - component: {fileID: 2057857506}
-  - component: {fileID: 2057857505}
   - component: {fileID: 2057857508}
+  - component: {fileID: 2057857511}
+  - component: {fileID: 2057857510}
   m_Layer: 0
   m_Name: CircleBounds
   m_TagString: CircleBound
@@ -496,19 +484,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2057857505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057857504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae7eeaea59867435898cda84454254ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 2
 --- !u!120 &2057857506
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -606,8 +581,8 @@ LineRenderer:
     textureMode: 0
     shadowBias: 0.5
     generateLightingData: 0
-  m_UseWorldSpace: 1
-  m_Loop: 1
+  m_UseWorldSpace: 0
+  m_Loop: 0
 --- !u!4 &2057857507
 Transform:
   m_ObjectHideFlags: 0
@@ -615,14 +590,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057857504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
 --- !u!68 &2057857508
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -645,3 +620,29 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &2057857510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057857504}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d0519051d4d413fb20e06363869a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
+--- !u!114 &2057857511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057857504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c88d01aa60374f8a9f61c3459f6769b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2
