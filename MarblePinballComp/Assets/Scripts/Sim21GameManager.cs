@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sim19GameManager : MonoBehaviour
+public class Sim21GameManager : MonoBehaviour
 {
     private const float XSpawnMin = -1f;
 
@@ -16,15 +16,18 @@ public class Sim19GameManager : MonoBehaviour
     [SerializeField]
     private GameObject marblePrefab;
 
-    private static Sim19GameManager instance;
+    [SerializeField]
+    private ParticleSystem collisionParticle;
 
-    public static Sim19GameManager Instance
+    private static Sim21GameManager instance;
+
+    public static Sim21GameManager Instance
     {
         get
         {
             if (instance is null)
             {
-                throw new NullReferenceException("Instance of Sim19GameManager is null");
+                throw new NullReferenceException("Instance of Sim21GameManager is null");
             }
 
             return instance;
@@ -34,18 +37,19 @@ public class Sim19GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        Invoke(nameof(StartSim), 2f);
     }
 
     // Start is called before the first frame update
-    void Start()
+    void StartSim()
     {
         var color = Color.red;
         ColorUtility.TryParseHtmlString("#00F7FF", out color);
         SpawnMarble(new Vector3(-1f, 0.5f, 0f), color);
-        ColorUtility.TryParseHtmlString("#FF0000", out color);
+        ColorUtility.TryParseHtmlString("#FF0E00", out color);
         SpawnMarble(new Vector3(1f, 0.5f, 0f), color);
-        ColorUtility.TryParseHtmlString("#03FF00", out color);
-        SpawnMarble(new Vector3(0f, 0.5f, 0f), color);
+        //ColorUtility.TryParseHtmlString("#03FF00", out color);
+        //SpawnMarble(new Vector3(0f, 0.5f, 0f), color);
         //ColorUtility.TryParseHtmlString("#E700FF", out color);
         //SpawnMarble(new Vector3(-0.5f, 1f, 0f), color);
         //ColorUtility.TryParseHtmlString("#FFAD00", out color);
@@ -75,5 +79,12 @@ public class Sim19GameManager : MonoBehaviour
         var endColor = color;
         endColor.a = 0f;
         trailRenderer.endColor = endColor;
+
+    }
+
+    public void PlayCollisionParticle(Vector3 position)
+    {
+        collisionParticle.transform.position = position;
+        collisionParticle.Play();
     }
 }

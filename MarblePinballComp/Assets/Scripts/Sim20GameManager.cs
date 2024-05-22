@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//TODO: This sim is gonna be a the circle will have a small gap and it will rotate around the circle and the balls will try to escape but they only can move 3 seconds then freeze
-
 public class Sim20GameManager : MonoBehaviour
 {
     private const float XSpawnMin = -1f;
@@ -82,15 +80,5 @@ public class Sim20GameManager : MonoBehaviour
         var endColor = color;
         endColor.a = 0f;
         trailRenderer.endColor = endColor;
-    }
-
-    public void IncrementBounceCounter()
-    {
-        counter++;
-        if (counter >= 10)
-        {
-            SpawnMarble();
-            counter = 0;
-        }
     }
 }
