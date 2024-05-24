@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConstantSpeedBounce : MonoBehaviour
+public class Racer : MonoBehaviour
 {
     [SerializeField]
-    private float speed = 0.3f;
+    private string racerName;
+
+    private float speed = 1.5f;
 
     private Rigidbody2D rb;
 
@@ -28,8 +30,22 @@ public class ConstantSpeedBounce : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!collision.collider.CompareTag("Obstacle"))
+        {
+            return;
+        }
+
+        Sim23GameManager.Instance.PlayCollisionParticle(collision.GetContact(0).point);
         Vector2 normal = collision.contacts[0].normal;
         rb.velocity = Vector2.Reflect(lastVelocity.normalized, normal);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("RaceWinZone"))
+        {
+            Sim23GameManager.Instance.EndRace(racerName);
+        }
     }
 }
 

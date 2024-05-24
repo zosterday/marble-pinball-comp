@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HorizontalMovement : MonoBehaviour
 {
-    private const float Speed = 1.5f;
+    [SerializeField]
+    private float Speed = 1.5f;
 
     private Vector3 originalPosition;
 

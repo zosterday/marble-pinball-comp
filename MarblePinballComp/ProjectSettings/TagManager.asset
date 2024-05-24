@@ -17,6 +17,7 @@ TagManager:
   - DeathBall
   - Obstacle
   - CircleBound
+  - RaceWinZone
   layers:
   - Default
   - TransparentFX
