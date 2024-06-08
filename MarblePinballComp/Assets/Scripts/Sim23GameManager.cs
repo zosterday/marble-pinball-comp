@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Sim23GameManager : MonoBehaviour
@@ -17,6 +18,12 @@ public class Sim23GameManager : MonoBehaviour
     [SerializeField]
     private ParticleSystem collisionParticle;
 
+    [SerializeField]
+    private GameObject endGamePanel;
+
+    [SerializeField]
+    private TextMeshProUGUI winnerText;
+
     private static Sim23GameManager instance;
 
     public static Sim23GameManager Instance
@@ -31,6 +38,8 @@ public class Sim23GameManager : MonoBehaviour
             return instance;
         }
     }
+
+    public bool IsEnded { get; private set; }
 
     private void Awake()
     {
@@ -54,6 +63,8 @@ public class Sim23GameManager : MonoBehaviour
 
     public void EndRace(string winnerName)
     {
-
+        IsEnded = true;
+        winnerText.text = $"{winnerName} wins!";
+        endGamePanel.SetActive(true);
     }
 }
