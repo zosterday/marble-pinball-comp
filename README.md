@@ -1,13 +1,11 @@
-# Marble Pinball Simulation
+# Marble Simulations
 
-Welcome to the **Marble Pinball Simulation** project!
+Welcome to the **Marble Simulations** project!
 
 ## Description
 
-The **Marble Pinball Simulation** is a 2d Unity simulation. The simulation spawns marbles of different color and they fall into zones worth different amounts of points. The color with the most points at the end is the winner.
+The **Marble Simulations** project is a 2d Unity project where I created a variety of simulations, which I recorded videos of and posted to an Instagram simulation page I created with the username @sillysimulationz. I have created over 22 simulations so far and received tens of thousands of likes on the videos of them that I have posted on Instagram.
 
-## Demo Video
+## Videos
 
-https://github.com/zosterday/marble-pinball-comp/assets/35213205/c5ca7991-2426-48c7-936e-e46bd96251cc
-
-Click the image above to watch a brief demo video showcasing the **Marble Pinball Simulation**.
+Videos of all the simulations can be viewed on the Instagram page found at this link: https://www.instagram.com/sillysimulationz/
