@@ -4,7 +4,7 @@ Welcome to the **Marble Simulations** project!
 
 ## Description
 
-The **Marble Simulations** project is a 2d Unity project where I created a variety of simulations, which I recorded videos of and posted to an Instagram simulation page I created with the username @sillysimulationz. I have created over 22 simulations so far and received tens of thousands of likes on the videos of them that I have posted on Instagram.
+The **Marble Simulations** project is a 2d Unity project where I created a variety of simulations, which I recorded videos of and posted to an Instagram simulation page I created with the username @sillysimulationz. I have created over 25 simulations so far and received over a million views on the videos of them that I have posted on Instagram.
 
 ## Videos
 
